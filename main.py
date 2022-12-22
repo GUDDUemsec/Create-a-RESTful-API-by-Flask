@@ -4,18 +4,18 @@ app = Flask(__name__)
  
   
 @app.route('/')
-def hello_world():
+def firstAPi():
     return 'This is my first API call!'
 
 @app.route('/test/<int:id>')
-def show_blog(id):
+def test(id):
    return f'test Number: {id}'
   
 # TEMPLATES
 
 @app.route("/index")
 def manni():
-    name = "rohan das"
+    name = "manni"
     return render_template('index.html', name2 = name)
   
 # Create a RESTful API 
@@ -26,6 +26,7 @@ def testpost():
      dictToReturn = {'text':input_json['query']}
      return jsonify(dictToReturn)
 
+# on data
 
 data={
  "Savala Nolan": {"_id": {
@@ -40,7 +41,7 @@ data={
 }
 }
 
-# @app.get('/datas')
+
 def list_of_data():
    return {"datas":list(data.values())}
 
